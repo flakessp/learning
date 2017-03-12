@@ -1,0 +1,41 @@
+/* =================================
+  Photo Overlay Transition
+==================================== */
+
+.photo-overlay {
+	opacity: 0;
+	-webkit-backface-visibility: hidden;
+	transition: opacity .5s;
+}
+.photo-overlay:hover {
+	opacity: 1;
+}
+
+/* =================================
+  Button Transitions
+==================================== */
+
+.button {
+	opacity: 0;
+	transition: opacity .3s ease-out .2s, background ease-out .4s .3s, box-shadow ease-out .5s 0s;
+}
+
+.button:hover {
+	background: rgba(74, 137, 202, 1);
+	box-shadow: 0 0 0 3px rgba(255, 255, 255, .7);
+}
+
+.photo-overlay:hover .button {
+	opacity: 1;
+}
+
+.btn-icon {
+	transition: opacity ease-in-out, left ease-out;
+	transition-duration: .5s;
+	transition-delay: .3s;
+}
+
+.button:hover  .btn-icon {
+	opacity: 1;
+	left: 80%;
+}
