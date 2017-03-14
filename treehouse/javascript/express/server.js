@@ -1,10 +1,25 @@
 const express = require('express'),
       jsonParser = require('body-parser').json,
       app = express(),
-      routes = require('./routes');
+      routes = require('./routes'),
+      logger = require('morgan');
+      mongoose = require('mongoose');
 
-const logger = require('morgan');
+// DATABASE
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost:27017/qa');
+const db = mongoose.connection;
 
+db.on('error', (err) => {
+    console.err(`connection error: ${err}`);
+});
+
+db.once('open', () => {
+    console.log(`db connection successful!`);
+    // All database communication goes here
+})
+
+// APP 
 app.use(logger('dev'));
 app.use(jsonParser());
 
